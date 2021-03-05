@@ -1,0 +1,23 @@
+{% extends "bootstrap/base.html" %}
+{% block title %}Novo Curso{% endblock %}
+{% block content %}
+<h1>Novo Curso</h1>
+<form action="" method="post">
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.curso.label }}<br>
+    {{ form.curso(size=64) }}
+  </p>
+  <p>
+    {{ form.tipo.label }}<br>
+    {{ form.tipo(size=6) }}
+  </p>
+  <p>
+    {{ form.duracao.label }}<br>
+    {{ form.duracao(size=10) }}
+  </p>
+  <p>
+    {{ form.submit() }}
+  </p>
+</form>
+{% endblock %}
