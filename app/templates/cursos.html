@@ -1,6 +1,6 @@
 {% extends 'bootstrap/base.html' %}
 {% block html_attribs %} lang="pt-BR"{% endblock %}
-{% block title %}Lista{% endblock %}
+{% block title %}Cursos cadastrados{% endblock %}
 {% block styles %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 {% endblock %}
@@ -17,7 +17,7 @@
       <th>Tipo</th>
       <th>Duração</th>
     </tr>
-  {% for filme in filmes %}
+  {% for curso in cursos %}
     <tr>
       <td>{{ curso.id }}</td>
       <td>{{ curso.curso }}</td>

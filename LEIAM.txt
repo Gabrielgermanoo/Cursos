@@ -1,0 +1,8 @@
+1) extrair o zip
+2) instalar o virtualenv - virtualenv 
+3) executar .venv/Scripts/activate
+4) executar comando: pip3 install -r requirements.txt (na pasta do arquivo) 
+5) executar comando python3 manage.py db migrate
+6) executar comando python3 manage.py db migrate
+7) executar comando python3 run.py
+
