@@ -1,9 +1,15 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}Novo Curso{% endblock %}
 {% block content %}
-<h1>Novo Curso</h1>
-<form action="" method="post">
-  {{ form.hidden_tag() }}
+<div class="container"></div>
+    <nav class="navbar navbar-light bg-light">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="/index">Cursos Online</a>
+      </div>
+    </nav>
+  <h1>Novo Curso</h1>
+  <form action="" method="post">
+    {{ form.hidden_tag() }}
   <p>
     {{ form.curso.label }}<br>
     {{ form.curso(size=64) }}
@@ -20,4 +26,5 @@
     {{ form.submit() }}
   </p>
 </form>
+</div>
 {% endblock %}

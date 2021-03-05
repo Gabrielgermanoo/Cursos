@@ -1,11 +1,50 @@
-{% extends "bootstrap/base.html" %}
-{% block navbar %}
-{{nav.mynavbar.render()}}
+{% extends 'bootstrap/base.html' %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <nav class="navbar navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Cursos Online</a>
+            </div>
+        </nav>
+        <div class="jumbotron">
+            <div class="container">
+              <h1 class="display-3">Welcome!</h1>
+              <p>Site de criar cursos online!</p>
+              <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+            </div>
+          </div>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.</p>
+            <footer class="blockquote-footer">Paulo Freire<cite title="Source Title">, pensador contemporâneo</cite></footer>
+          </blockquote>
+        <br>
+        <br>
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top" style = alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Cursos disponíveis!</h5>
+                <p class="card-text">Lista de cursos ofertados pelo sistema!</p>
+                <a href="/cursos" class="btn btn-primary">Acesse aqui!</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img src="" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Cursos disponíveis!</h5>
+                <p class="card-text">Lista de cursos ofertados pelo sistema!</p>
+                <a href="/cursos/novo" class="btn btn-primary">Acesse aqui!</a>
+                </div>
+            </div>
+        </div>
+      </div>
+      <footer class="container">
+        <p>&copy; Company 2017-2018</p>
+      </footer>
+</div>
 {% endblock %}
-
-@nav.navigation()
-def mynavbar():
-    return Navbar(
-        'index
-        View('Home', 'index'),
-    )
