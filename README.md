@@ -1,3 +1,12 @@
 # Cursos
 
-Site para criar cursos e armazena-los em uma lista
+COMANDOS:
+
+1) extrair o zip
+2) instalar o virtualenv - virtualenv (python3 -m venv venv)
+3) executar .venv/bin/activate
+4) executar comando: pip3 install -r requirements.txt (na pasta do arquivo) 
+5) executar comando flask db stamp head
+6) executar comando flask db migrate
+7) executar comando flask db upgrade
+8) executar comando python3 run.py
