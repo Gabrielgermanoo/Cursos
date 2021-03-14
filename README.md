@@ -10,3 +10,11 @@ COMANDOS:
 6) executar comando flask db migrate
 7) executar comando flask db upgrade
 8) executar comando python3 run.py
+
+Alunos: Gabriel Lucas
+João Vitor Vieira
+Jailson Soares
+João Paulo
+Edvaldo Borges
+
+Turma: 914-A
