@@ -1,0 +1,44 @@
+{% extends "base2.html" %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block title %}Cadastro de Curso{% endblock %}
+{% block content %}
+{% if current_user.is_authenticated %}
+<div class="container" , style="padding-top: 50px;">
+  <div class="container rounded bg-light">
+    <div class="row justify-content-center">
+      <div class="text-center">
+      <h1 class="display-5">Informe os dados do seu curso</h1><br>
+      </div>
+        <form action="" method="post" class="form-signin">
+          {{ form.hidden_tag() }}
+          <div class="col-md-8 col-md-offset-6">
+            <p>
+              {{ form.curso.label }}<br>
+              {{ form.curso(size=64, class="form-control") }}
+            </p>
+            <p>
+              {{ form.tipo.label }}<br>
+              {{ form.tipo(size=64, class="form-control") }}
+            </p>
+            <p>
+              {{ form.duracao.label }}<br>
+              {{ form.duracao(size=64, class="form-control") }}
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              {{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+            </p>
+          </div>
+      </div>
+      </div> 
+</form>
+</div>
+</div>
+{% else %}
+  <div class="text-center">
+      <h1 class="display-5">Faça login para ter acesso</h1><br>
+      <p><a href="{{ url_for('login') }}">Login</a></p>
+      </div>
+{% endif %}
+{% endblock %}
