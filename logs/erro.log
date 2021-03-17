@@ -1,0 +1,72 @@
+2021-03-16 11:40:23,933 INFO: Microblog startup [in /home/gabriel/Downloads/cursos/app/__init__.py:52]
+2021-03-16 11:40:59,928 ERROR: Exception on /cadastro [POST] [in /home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/app.py:1891]
+Traceback (most recent call last):
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: users.username
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/app.py", line 2447, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/app.py", line 1952, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/app.py", line 1821, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/_compat.py", line 39, in reraise
+    raise value
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/app.py", line 1950, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/flask/app.py", line 1936, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/gabriel/Downloads/cursos/app/controllers/default.py", line 47, in cadastro
+    db.session.commit()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/scoping.py", line 163, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 1046, in commit
+    self.transaction.commit()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 504, in commit
+    self._prepare_impl()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 483, in _prepare_impl
+    self.session.flush()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2540, in flush
+    self._flush(objects)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2682, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/util/langhelpers.py", line 68, in __exit__
+    compat.raise_(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/session.py", line 2642, in _flush
+    flush_context.execute()
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 422, in execute
+    rec.execute(self)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/unitofwork.py", line 586, in execute
+    persistence.save_obj(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 239, in save_obj
+    _emit_insert_statements(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/orm/persistence.py", line 1135, in _emit_insert_statements
+    result = cached_connections[connection].execute(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/home/gabriel/Downloads/cursos/venv/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 608, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: users.username
+[SQL: INSERT INTO users (username, password, name, email) VALUES (?, ?, ?, ?)]
+[parameters: ('Gabriel_Lucas', 'pbkdf2:sha256:150000$h3vvHpfZ$92c4afd73f78277fec6669077c05d86291411ae10c59def7e00cb0791e5d0e10', 'Gabriel Lucas', 'gabriel.lucas@gmail.com')]
+(Background on this error at: http://sqlalche.me/e/13/gkpj)

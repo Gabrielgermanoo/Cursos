@@ -1,0 +1,47 @@
+    {% extends 'base2.html' %}
+    {% block html_attribs %} lang="pt-BR"{% endblock %}
+    {% block title %}Inicio{% endblock %}
+    {% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            <div class="container">
+              <blockquote class="blockquote text-center">
+              {% if current_user.is_authenticated %}
+              <h1 class="display-3">Seja bem-vindo, {{ current_user.name }}!</h1>
+              {% else %}
+              <h1 class="display-3">Seja bem-vindo!</h1>
+              {% endif %}
+              <p>Aqui você pode criar seus cursos online, totalmente grátis!</p>
+            </blockquote>
+              <p></a></p>
+            </div>
+          </div>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Se a educação sozinha não transforma a sociedade, sem ela tampouco a sociedade muda.</p>
+            <footer class="blockquote-footer">Paulo Freire<cite title="Source Title">, pensador contemporâneo</cite></footer>
+          </blockquote>
+        <br>
+        <br>
+        <div class = "row">
+        <div class="col-sm-6">
+            <div class="card" style="width: 18rem;">
+                <img width=200 src="https://www.estudiosite.com.br/img/post/odamCoFC3qoYyZm7NDb55b364d7855d80.jpg" class="card-img-top" style = alt="...">
+                <div class="card-body">
+                <p class="card-text">Aqui você pode ver a lista de sites cadastrado no sistema, confira!</p>
+                <a href="/cursos" class="btn btn-primary">Sites cadastrados</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+        
+            <div class="card" style="width: 18rem;">
+              <img width=200 src="https://tomarposse.com/wp-content/uploads/2019/09/11-Super-Dicas-De-Estudo-Para-Colocar-Em-Pr%C3%A1tica-Agora.jpg" class="card-img-top" style = alt="...">
+                <div class="card-body">
+                <p class="card-text">Aqui, cadastre o seu curso.</p> <br>
+                <a href="/cursos/novo" class="btn btn-primary">Cadastrar agora</a>
+                </div>
+            </div>
+        </div>
+      </div>
+{% endblock %}
