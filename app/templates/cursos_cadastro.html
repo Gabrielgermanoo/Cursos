@@ -2,7 +2,6 @@
 {% block html_attribs %} lang="pt-BR"{% endblock %}
 {% block title %}Cadastro de Curso{% endblock %}
 {% block content %}
-{% if current_user.is_authenticated %}
 <div class="container" , style="padding-top: 50px;">
   <div class="container rounded bg-light">
     <div class="row justify-content-center">
@@ -35,10 +34,4 @@
 </form>
 </div>
 </div>
-{% else %}
-  <div class="text-center">
-      <h1 class="display-5">Faça login para ter acesso</h1><br>
-      <p><a href="{{ url_for('login') }}">Login</a></p>
-      </div>
-{% endif %}
 {% endblock %}

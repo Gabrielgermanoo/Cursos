@@ -2,10 +2,12 @@
 {% block html_attribs %} lang="pt-BR"{% endblock %}
 {% block title %}Cursos cadastrados{% endblock %}
 {% block content %}
+<br>
 <div class="container">
   <div class="page-header">
     <h1>{{ cursos|length }} cursos encontrados</h1>
   </div>
+  <br>
 {% if cursos %}
   <table class="table table-striped">
     <tr>
@@ -13,6 +15,7 @@
       <th>Curso</th>
       <th>Tipo</th>
       <th>Duração</th>
+      <th>Ações</th>
     </tr>
   {% for curso in cursos %}
     <tr>
@@ -20,6 +23,9 @@
       <td>{{ curso.curso }}</td>
       <td>{{ curso.tipo }}</td>
       <td>{{ curso.duracao }}</td>
+      <td><a href="{{url_for('editar_curso', id = curso.id)}}" title="Editar">Editar</a> | 
+          <a href="{{url_for('excluir_curso', id = curso.id)}}" title="Excluir">Excluir</a>
+      </td>
     </tr>
   {% endfor %}
   </table>

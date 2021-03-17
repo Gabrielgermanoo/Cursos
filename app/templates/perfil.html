@@ -2,7 +2,6 @@
 {% block title %}Perfil{% endblock %}
 {% block html_attribs %} lang="pt-BR"{% endblock %}
 {% block content %}
-{% if current_user.is_authenticated %}
         <br>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -28,9 +27,8 @@
                       <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{current_user.email}}</p></li>
                     </ul>
                     <hr>
-                    <p><a href="{{ url_for('editar_perfil') }}">Editar</a></p>
+                    <p><a href="{{ url_for('editar_perfil', id = current_user.id)}}">Editar</a></p>
           </div>
       </div>
       </div>
-{% endif %}
 {% endblock %}

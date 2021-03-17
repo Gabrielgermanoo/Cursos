@@ -1,0 +1,37 @@
+{% extends "base2.html" %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block title %}editar_curso{% endblock %}
+{% block content %}
+<div class="container" , style="padding-top: 50px;">
+  <div class="container rounded bg-light">
+    <div class="row justify-content-center">
+      <div class="text-center">
+      <h1 class="display-5">Informe os dados do seu curso</h1><br>
+      </div>
+        <form action="" method="post" class="form-signin">
+          {{ form.hidden_tag() }}
+          <div class="col-md-8 col-md-offset-6">
+            <p>
+              {{ form.curso.label }}<br>
+              {{ form.curso(size=64, class="form-control", value=curso.curso) }}
+            </p>
+            <p>
+              {{ form.tipo.label }}<br>
+              {{ form.tipo(size=64, class="form-control", value=curso.tipo) }}
+            </p>
+            <p>
+              {{ form.duracao.label }}<br>
+              {{ form.duracao(size=64, class="form-control", value=curso.duracao) }}
+            </p>
+          </div>
+          <div class="col-md-4">
+            <p>
+              {{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+            </p>
+          </div>
+      </div>
+      </div> 
+</form>
+</div>
+</div>
+{% endblock %}

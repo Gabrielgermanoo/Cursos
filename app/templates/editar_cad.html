@@ -1,7 +1,47 @@
 {% extends 'base2.html' %}
-{% block title %}editar{% endblock %}
+{% block title %}editar_perfil{% endblock %}
 {% block html_attribs %} lang="pt-BR"{% endblock %}
 {% block content %}
-{% if current_user.is_authenticated %}
-{% endif %}
+<div class="container">
+    <div class="container rounded bg-light">
+      <div class="row justify-content-center">
+        <div class="text-center">
+          <h3 class="display-4">Edite seus dados pessoais</h3><br>
+        </div>
+      <form action="" method="POST">
+        <div class="form-group">
+      
+          {{ form.hidden_tag() }}
+            <div class="col-md-8 col-md-offset-6">
+                <p>
+                  {{ form.user.label(class="h5") }}
+                  {{ form.user(size=64, class_="form-control",
+                     value=user.username) }}
+                </p>
+                <p>
+                  {{ form.password.label(class='h5') }}
+                  {{ form.password(size=128, class_="form-control", 
+                     value=user.password) }}
+                </p>
+                <p>
+                  {{ form.name.label (class='h5')}}
+                  {{ form.name(size=86, class_="form-control",  
+                      value=user.name) }}
+                </p>
+                <p>
+                  {{ form.email.label (class='h5')}}
+                  {{ form.email(size=84, class_="form-control",
+                     value=user.email) }}
+                </p>
+                </div>
+                <div class="col-md">
+                <p>
+                  {{ form.submit(class="btn btn-primary") }}
+                </p>
+          </div>
+      </div>
+    </div>
+  </div>
+  </form>
+  </div>
 {% endblock %}
