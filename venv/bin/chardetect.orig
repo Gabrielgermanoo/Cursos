@@ -1,6 +1,10 @@
+<<<<<<< HEAD
+#!/home/gabriel/Downloads/cursos/venv/bin/python3
+=======
 #!/bin/sh
 '''exec' "/home/gabriel/Área de Trabalho/Cursos-master/venv/bin/python3" "$0" "$@"
 ' '''
+>>>>>>> 8396abd511cada5fa65013b1cbea14a0d54af439
 # -*- coding: utf-8 -*-
 import re
 import sys
