@@ -15,8 +15,13 @@
             <div class="col-md-8 col-md-offset-6">
                 <p>
                   {{ form.user.label(class="h5") }}
-                  {{ form.user(size=64, class_="form-control",
+                  {{ form.user(size=64, class_="form-control", disabled=True,
                      value=user.username) }}
+                </p>
+                <p>
+                  {{ form.email.label (class='h5')}}
+                  {{ form.email(size=84, class_="form-control", disabled=True,
+                     value=user.email) }}
                 </p>
                 <p>
                   {{ form.password.label(class='h5') }}
@@ -27,11 +32,6 @@
                   {{ form.name.label (class='h5')}}
                   {{ form.name(size=86, class_="form-control",  
                       value=user.name) }}
-                </p>
-                <p>
-                  {{ form.email.label (class='h5')}}
-                  {{ form.email(size=84, class_="form-control",
-                     value=user.email) }}
                 </p>
                 </div>
                 <div class="col-md">

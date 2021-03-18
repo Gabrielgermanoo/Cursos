@@ -7,6 +7,7 @@ from app.models.forms import UserForm
 from app.models.forms import DeleteForm
 from app.models.cursos import Curso
 from app.models.users import User
+from werkzeug.security import generate_password_hash
 
 @login_manager.user_loader
 def load_user(id):
@@ -75,7 +76,7 @@ def editar_perfil(id):
     return abort (404)
   if form.validate_on_submit():
       user.user = form.user.data
-      user.check_password = form.password.data
+      user.password = generate_password_hash(form.password.data)
       user.name = form.name.data
       user.email = form.email.data
       db.session.commit()
