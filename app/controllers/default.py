@@ -70,18 +70,18 @@ def perfil():
 
 @app.route("/perfil/<id>/editar", methods=["GET", "POST"])
 def editar_perfil(id):
-  form = UserForm()
-  user = User.query.get(id)
-  if user is None:
-    return abort (404)
-  if form.validate_on_submit():
-      user.user = form.user.data
-      user.password = generate_password_hash(form.password.data)
-      user.name = form.name.data
-      user.email = form.email.data
-      db.session.commit()
-      return redirect(url_for("perfil"))
-  return render_template("editar_cad.html", form=form, user=user)
+    form = UserForm()
+    user = User.query.get(id)
+    if user is None:
+      return abort(404)
+    if form.validate_on_submit():
+        user.user = form.user.data
+        user.password = generate_password_hash(form.password.data)
+        user.name = form.name.data
+        user.email = form.email.data
+        db.session.commit()
+        return redirect(url_for("perfil"))
+    return render_template("editar_cad.html", form=form, user=user)
 
 @app.route("/cursos/novo", methods=['GET', 'POST'], defaults={"user": None})
 @app.route("/cursos/novo/<user>")
@@ -102,7 +102,7 @@ def editar_curso(id):
   form = CursoForm()
   curso = Curso.query.get(id)
   if curso is None:
-    return abort (404)
+    return abort(404)
   if form.validate_on_submit():
     curso.curso = form.curso.data
     curso.tipo = form.tipo.data
@@ -127,3 +127,20 @@ def excluir_curso(id):
 def logout():
   logout_user()
   return redirect(url_for("inicio"))
+
+@app.route("/perfil/admin")
+def adm_edit():
+  user = User.query.all()
+  return render_template("admin_edit.html", user=user)
+
+@app.route("/perfil/admin/<id>/excluir", methods=["GET", "POST"])
+def adm_excluir(id):
+  form = DeleteForm()
+  user = User.query.get(id)
+  if user is None:
+    return abort(404)
+  if form.validate_on_submit():
+    db.session.delete(user)
+    db.session.commit()
+    return redirect(url_for("adm_edit"))
+  return render_template("user_excluir.html", form=form, user = user)

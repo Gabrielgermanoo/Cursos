@@ -1,0 +1,35 @@
+{% extends 'base2.html' %}
+{% block title %}ADMIN{% endblock %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block content %}
+        <br>
+        <div class="container">
+            <div class="page-header">
+              <h1>{{ user|length }} usuários encontrados</h1>
+            </div>
+            <br>
+          {% if user %}
+            <table class="table table-striped">
+              <tr>
+                <th>ID</th>
+                <th>Usuário</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+              </tr>
+            {% for user in user %}
+              <tr>
+                <td>{{ user.id }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a href="{{url_for('editar_perfil', id = user.id)}}" title="Editar">Editar</a> | 
+                    <a href="{{url_for('adm_excluir', id = user.id)}}" title="Excluir">Excluir</a>
+                </td>
+              </tr>
+            {% endfor %}
+            </table>
+          {% endif %}
+          </div>
+{% endblock %}

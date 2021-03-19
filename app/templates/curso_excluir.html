@@ -2,5 +2,15 @@
 {% block title %}Avaliacoes{% endblock %}
 {% block html_attribs %} lang="pt-BR"{% endblock %}
 {% block content %}
-    
+        <br>
+        <div class="container">
+                <h1>Excluir curso</h1>
+        <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <h2>Confirma a exclusão do curso {{curso.curso}}?</h2>
+                <p>
+                        {{ form.submit() }}
+                </p>
+        </form>
+        </div>
 {% endblock %}

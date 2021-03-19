@@ -1,0 +1,16 @@
+{% extends 'base2.html' %}
+{% block title %}Avaliacoes{% endblock %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block content %}
+        <br>
+        <div class="container">
+                <h1>Excluir Usuário</h1>
+        <form action="" method="POST">
+                {{ form.hidden_tag() }}
+                <h2>Confirma a exclusão do usuário {{user.username}}?</h2>
+                <p>
+                        {{ form.submit() }}
+                </p>
+        </form>
+        </div>
+{% endblock %}
