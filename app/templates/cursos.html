@@ -15,6 +15,8 @@
       <th>Curso</th>
       <th>Tipo</th>
       <th>Duração</th>
+      <th>Média de Avaliações</th>
+      <th>Professores Inscritos</th>
       <th>Ações</th>
     </tr>
   {% for curso in cursos %}
@@ -23,12 +25,23 @@
       <td>{{ curso.curso }}</td>
       <td>{{ curso.tipo }}</td>
       <td>{{ curso.duracao }}</td>
-      <td><a href="{{url_for('editar_curso', id = curso.id)}}" title="Editar">Editar</a> | 
+      <td>{% if curso.avaliacoes.count() > 0 %} 
+        {{ curso.avaliacoes | sum(attribute='estrelas') / curso.avaliacoes.count() }}
+        {% else %}
+         - 
+        {% endif %}
+      </td>
+      <td>{{ curso.cursos_prof.count() }}</td>
+      <td>
+          <a href="{{ url_for('lista_professores', id=curso.id) }}" title="Professores">Professores</a> |
+          <a href="{{ url_for('avaliacoes', id=curso.id) }}" title="Avaliar">Avaliar</a> |
+          <a href="{{url_for('editar_curso', id = curso.id)}}" title="Editar">Editar</a> | 
           <a href="{{url_for('excluir_curso', id = curso.id)}}" title="Excluir">Excluir</a>
       </td>
     </tr>
   {% endfor %}
   </table>
 {% endif %}
+<a class="btn btn-primary" href="/cursos/novo" role="button">Adicionar</a>
 </div>
 {% endblock %}

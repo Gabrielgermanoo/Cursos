@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, IntegerField, SubmitField, PasswordField, BooleanField
+from wtforms.fields.html5 import DateField
 from wtforms.validators import DataRequired
 
 class DeleteForm(FlaskForm):
@@ -22,4 +23,16 @@ class UserForm(FlaskForm):
   name = StringField ('Nome', validators=[DataRequired()])
   email = StringField('Email', validators=[DataRequired()])
   submit = SubmitField('Criar')
+
+class ProfessorForm(FlaskForm):
+  nome = StringField ('Nome', validators=[DataRequired()])
+  data_nascimento = DateField ('Data de Nascimento')
+  formacao = StringField ('Formação')
+  submit = SubmitField ('Salvar')
  
+class AvaliacaoForm(FlaskForm):
+  estrela1 = SubmitField('⭐')
+  estrela2 = SubmitField('⭐')
+  estrela3 = SubmitField('⭐')
+  estrela4 = SubmitField('⭐')
+  estrela5 = SubmitField('⭐')

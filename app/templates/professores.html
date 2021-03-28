@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+{% block title %}Professores{% endblock %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block content %}
+<br>
+<div class="container">
+    <div class="page-header">
+    <h1>{{professores|length}} professores encontrados</h1>
+</div>
+{% if professores %}
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Data de nascimento</th>
+      <th>Formação</th>
+      <th>Cursos</th>
+      <th>Ações</th>
+    </tr>
+  {% for professor in professores %}
+    <tr>
+      <td>{{ professor.id }}</td>
+      <td>{{ professor.nome }}</td>
+      <td>{{ professor.data_nascimento.strftime('%d/%m/%Y') }}</td>
+      <td>{{ professor.formacao }}</td>
+      <td>{{ professor.cursos.count() }}</td>
+      <td><a href="{{url_for('editar_professor', id = professor.id)}}" title="Editar">Editar</a> | 
+          <a href="{{url_for('excluir_professor', id = professor.id)}}" title="Excluir">Excluir</a>
+      </td>
+    </tr>
+  {% endfor %}
+  </table>
+{% endif %}
+<a class="btn btn-primary" href="/professores/novo" role="button">Adicionar</a>
+</div>
+
+{% endblock %}

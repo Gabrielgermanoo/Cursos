@@ -3,4 +3,17 @@
 {% block html_attribs %} lang="pt-BR"{% endblock %}
 {% block content %}
         <br>
+<div class="container">
+<h1>Avaliar "{{ curso.curso }}"</h1>
+<form action="" method="POST">
+        {{ form.hidden_tag() }}
+        <p>
+                {{ form.estrela1() }}
+                {{ form.estrela2() }}
+                {{ form.estrela3() }}
+                {{ form.estrela4() }}
+                {{ form.estrela5() }}
+        </p>
+</form>
+</div>
 {% endblock %}

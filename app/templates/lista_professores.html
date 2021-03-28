@@ -1,0 +1,64 @@
+{% extends 'base2.html' %}
+{% block title %}Avaliacoes{% endblock %}
+{% block html_attribs %} lang="pt-BR"{% endblock %}
+{% block content %}
+        <br>
+<div class="container">
+    <div class="page-header">
+        <h1>Professores de "{{curso.curso}}": </h1>
+        <h2>{{ curso.cursos_prof.count() }}</h2>
+    </div>
+{% if curso.cursos_prof.count() > 0 %}
+    <table class="table table-striṕed">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Formação</th>
+            <th>Ações</th>
+        </tr>
+
+    {% for professor in curso.cursos_prof %}
+    <tr>
+        <td>{{ professor.id }}</td>
+      <td>{{ professor.nome }}</td>
+      <td>{{ professor.data_nascimento.strftime('%d/%m/%Y') }}</td>
+      <td>{{ professor.formacao }}</td>
+      <td><a href="{{url_for('remover_lista_professores', curso_id = curso.id, 
+        professor_id = professor.id)}}" title="Remover da Lista">Remover</a></td>
+    </tr>
+    {% endfor %}
+    </table>
+{% endif %}
+<div class="page-header">
+    <h2>Todos os professores</h2>
+</div>
+    {% if professores %}
+    <table class="table table-striṕed">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Data de Nascimento</th>
+            <th>Formação</th>
+            <th>Ações</th>
+        </tr>
+        {% for professor in professores %}
+        <tr>
+            <td>{{ professor.id }}</td>
+          <td>{{ professor.nome }}</td>
+          <td>{{ professor.data_nascimento.strftime('%d/%m/%Y') }}</td>
+          <td>{{ professor.formacao }}</td>
+          <td>
+              {% if professor in curso.cursos_prof %}
+                (Professor já adicionado)
+            {% else %}
+                <a href="{{url_for('adicionar_lista_professores', 
+                curso_id=curso.id, professor_id=professor.id)}}"
+                title="Adicionar">Adicionar</a></td>
+            {% endif %}
+        </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
+</div>
+{% endblock %}
